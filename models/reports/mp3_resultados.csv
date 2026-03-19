@@ -1,4 +1,4 @@
 ,CV_F1_mean,CV_F1_std,F1_test,AUC_ROC
-Reg. Logistica,0.0,0.0,0.0,0.5528
-Random Forest,0.025,0.05,0.0,0.4621
-XGBoost,0.0435,0.0536,0.0,0.4507
+XGBoost,0.928,0.0084,0.9461,0.9979
+Reg. Logistica,0.938,0.0053,0.9355,0.9946
+Random Forest,0.8783,0.0085,0.8981,0.9873

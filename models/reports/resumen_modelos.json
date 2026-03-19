@@ -1,68 +1,68 @@
 {
   "mp1": {
-    "mejor_algoritmo": "Regresion Lineal",
+    "mejor_algoritmo": "Random Forest",
     "metricas": [
       [
         "CV_RMSE_mean",
-        18.095
+        8.205
       ],
       [
         "CV_RMSE_std",
-        0.568
+        1.106
       ],
       [
         "RMSE_test",
-        18.3
+        7.024
       ],
       [
         "MAE_test",
-        14.827
+        3.497
       ],
       [
         "R2_test",
-        -0.0272
+        0.9815
       ],
       [
         "supera_base",
-        false
+        true
       ]
     ]
   },
   "mp3": {
-    "mejor_algoritmo": "Reg. Logistica",
+    "mejor_algoritmo": "XGBoost",
     "metricas": [
       [
         "CV_F1_mean",
-        0.0
+        0.928
       ],
       [
         "CV_F1_std",
-        0.0
+        0.0084
       ],
       [
         "F1_test",
-        0.0
+        0.9461
       ],
       [
         "AUC_ROC",
-        0.5528
+        0.9979
       ]
     ]
   },
   "mp2": {
-    "mejor_algoritmo": "Arbol Decision",
+    "mejor_algoritmo": "XGBoost",
     "metricas": [
       [
         "CV_F1_macro_mean",
-        0.3001
+        0.838
       ],
       [
         "CV_F1_macro_std",
-        0.0165
+        0.0277
       ],
       [
         "F1_macro_test",
-        0.333
+        0.9041
       ]
     ]
   }

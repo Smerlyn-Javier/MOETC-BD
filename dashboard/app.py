@@ -52,7 +52,7 @@ st.markdown("""
 def cargar_datos():
     path = "data/final/dataset_final.csv"
     if os.path.exists(path):
-        df = pd.read_csv(path, parse_dates=["fecha_salida"])
+        df = pd.read_csv(path, parse_dates=["t_inicio"])
     else:
         # Datos demo si no hay dataset real
         from src.data_pipeline import ejecutar_pipeline
@@ -68,9 +68,9 @@ with st.sidebar:
     st.image("https://via.placeholder.com/200x60?text=MOETC-BD", width=200)
     st.markdown("### Filtros")
 
-    if "fecha_salida" in df_global.columns:
-        fecha_min = df_global["fecha_salida"].min().date()
-        fecha_max = df_global["fecha_salida"].max().date()
+    if "t_inicio" in df_global.columns:
+        fecha_min = df_global["t_inicio"].min().date()
+        fecha_max = df_global["t_inicio"].max().date()
         rango_fecha = st.date_input("Período", [fecha_min, fecha_max])
     else:
         rango_fecha = None
@@ -94,9 +94,9 @@ with st.sidebar:
 
 # ── FILTRAR DATOS ──────────────────────────────────────────────────────────────
 df = df_global.copy()
-if rango_fecha and len(rango_fecha) == 2 and "fecha_salida" in df.columns:
-    df = df[(df["fecha_salida"].dt.date >= rango_fecha[0]) &
-            (df["fecha_salida"].dt.date <= rango_fecha[1])]
+if rango_fecha and len(rango_fecha) == 2 and "t_inicio" in df.columns:
+    df = df[(df["t_inicio"].dt.date >= rango_fecha[0]) &
+            (df["t_inicio"].dt.date <= rango_fecha[1])]
 if rutas_sel and "ruta" in df.columns:
     df = df[df["ruta"].isin(rutas_sel)]
 
@@ -186,7 +186,7 @@ if vista == "🏠 Operativa":
     # Tabla de últimos viajes con alerta
     if "delta_t" in df.columns:
         cols_mostrar = [c for c in
-            ["viaje_id","ruta","fecha_salida","delta_t","riesgo_cat","otif"]
+            ["viaje_id","ruta","t_inicio","delta_t","riesgo_cat","otif"]
             if c in df.columns]
         df_alertas = df[df.get("delta_t", pd.Series()) > 15][cols_mostrar].head(10)
         if len(df_alertas) > 0:
@@ -200,19 +200,19 @@ if vista == "🏠 Operativa":
 elif vista == "📈 Analítica":
     st.subheader("Vista Analítica — Tendencias y Modelos ML")
 
-    if "fecha_salida" in df.columns and "delta_t" in df.columns:
-        df_trend = (df.set_index("fecha_salida")
+    if "t_inicio" in df.columns and "delta_t" in df.columns:
+        df_trend = (df.set_index("t_inicio")
                       .resample("W")["delta_t"]
                       .agg(["mean", "median", "count"])
                       .reset_index())
 
         fig = make_subplots(specs=[[{"secondary_y": True}]])
         fig.add_trace(go.Scatter(
-            x=df_trend["fecha_salida"], y=df_trend["mean"],
+            x=df_trend["t_inicio"], y=df_trend["mean"],
             name="Retraso prom.", line=dict(color="#42A5F5")),
             secondary_y=False)
         fig.add_trace(go.Bar(
-            x=df_trend["fecha_salida"], y=df_trend["count"],
+            x=df_trend["t_inicio"], y=df_trend["count"],
             name="N° Viajes", opacity=0.3, marker_color="#90A4AE"),
             secondary_y=True)
         fig.add_hline(y=15, line_dash="dash", line_color="red",
@@ -261,20 +261,20 @@ elif vista == "📈 Analítica":
 elif vista == "💰 Financiera":
     st.subheader("Vista Financiera — Análisis de Costos")
 
-    if "fecha_salida" in df.columns and "costo_total" in df.columns:
-        df_costo = (df.set_index("fecha_salida")
-                      .resample("M")["costo_total"]
+    if "t_inicio" in df.columns and "costo_estimado" in df.columns:
+        df_costo = (df.set_index("t_inicio")
+                      .resample("M")["costo_estimado"]
                       .agg(["mean", "sum"])
                       .reset_index())
 
         col_x, col_y = st.columns(2)
         with col_x:
-            fig_c1 = px.line(df_costo, x="fecha_salida", y="mean",
+            fig_c1 = px.line(df_costo, x="t_inicio", y="mean",
                              title="Costo Promedio por Viaje (RD$)",
                              markers=True)
             st.plotly_chart(fig_c1, use_container_width=True)
         with col_y:
-            fig_c2 = px.bar(df_costo, x="fecha_salida", y="sum",
+            fig_c2 = px.bar(df_costo, x="t_inicio", y="sum",
                             title="Costo Total Mensual (RD$)")
             st.plotly_chart(fig_c2, use_container_width=True)
 

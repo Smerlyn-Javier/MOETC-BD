@@ -75,27 +75,39 @@ MOETC-BD/
 
 ---
 
-## 10. Orden de ejecución
+## 10. Orden de ejecución (Paso a paso)
+
+Para ejecutar el proyecto completo de manera secuencial desde la terminal, sigue estos pasos:
 
 ```bash
-# 1. Pipeline de datos
-python src/data_pipeline.py
+# 1. Activar el entorno virtual e instalar dependencias (si no lo has hecho)
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 
-# 2. EDA
-jupyter notebook notebooks/01_EDA.ipynb
+# 2. Pipeline de datos
+# Ejecuta la limpieza, transformación y carga inicial de los datos
+python -m src.data_pipeline
 
-# 3. Features
-jupyter notebook notebooks/02_features.ipynb
+# 3. Ingeniería de variables (Features)
+# Construye las nuevas variables necesarias para el modelo
+python -m src.features
 
-# 4. Modelos ML
-jupyter notebook notebooks/03_modeling.ipynb
+# 4. Modelos de Machine Learning
+# Entrena el modelo, evalúa métricas y genera las gráficas de rendimiento
+python -m src.models
 
-# 5. VRP
-jupyter notebook notebooks/04_vrp.ipynb
+# 5. Motor de Optimización de Rutas (VRP)
+# Ejecuta el algoritmo para crear rutas óptimas de despacho
+python -m src.vrp_solver
 
-# 6. KPIs
-jupyter notebook notebooks/05_kpis.ipynb
+# 6. Cálculo y guardado de KPIs
+# Procesa y consolida las métricas finales de negocio
+python -m src.kpis
 
-# 7. Dashboard
+# 7. Desplegar el Dashboard
+# Inicia la interfaz gráfica que consolida resultados (accesible en localhost)
 streamlit run dashboard/app.py
 ```
+
+> **Nota:** También puedes ejecutar el análisis interactivo de cada fase abriendo los archivos de Jupyter en la carpeta `notebooks/` (`jupyter notebook`).

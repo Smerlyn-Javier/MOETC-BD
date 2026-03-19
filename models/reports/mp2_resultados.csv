@@ -1,4 +1,4 @@
 ,CV_F1_macro_mean,CV_F1_macro_std,F1_macro_test
-Arbol Decision,0.3001,0.0165,0.333
-Random Forest,0.3028,0.0012,0.3024
-XGBoost,0.2961,0.0041,0.2983
+XGBoost,0.838,0.0277,0.9041
+Random Forest,0.7865,0.0172,0.8172
+Arbol Decision,0.7804,0.0123,0.7502

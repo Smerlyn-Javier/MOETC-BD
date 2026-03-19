@@ -1,0 +1,9 @@
+{
+  "dataset": "Ordenes",
+  "filas": 500,
+  "columnas": 5,
+  "nulos_total": 25,
+  "pct_nulos": 5.0,
+  "duplicados": 0,
+  "timestamp": "2026-03-18T21:11:37.088750"
+}

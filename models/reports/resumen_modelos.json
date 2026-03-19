@@ -1,0 +1,69 @@
+{
+  "mp1": {
+    "mejor_algoritmo": "Regresion Lineal",
+    "metricas": [
+      [
+        "CV_RMSE_mean",
+        18.095
+      ],
+      [
+        "CV_RMSE_std",
+        0.568
+      ],
+      [
+        "RMSE_test",
+        18.3
+      ],
+      [
+        "MAE_test",
+        14.827
+      ],
+      [
+        "R2_test",
+        -0.0272
+      ],
+      [
+        "supera_base",
+        false
+      ]
+    ]
+  },
+  "mp3": {
+    "mejor_algoritmo": "Reg. Logistica",
+    "metricas": [
+      [
+        "CV_F1_mean",
+        0.0
+      ],
+      [
+        "CV_F1_std",
+        0.0
+      ],
+      [
+        "F1_test",
+        0.0
+      ],
+      [
+        "AUC_ROC",
+        0.5528
+      ]
+    ]
+  },
+  "mp2": {
+    "mejor_algoritmo": "Arbol Decision",
+    "metricas": [
+      [
+        "CV_F1_macro_mean",
+        0.3001
+      ],
+      [
+        "CV_F1_macro_std",
+        0.0165
+      ],
+      [
+        "F1_macro_test",
+        0.333
+      ]
+    ]
+  }
+}

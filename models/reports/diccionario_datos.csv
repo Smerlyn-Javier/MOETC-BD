@@ -1,0 +1,31 @@
+variable,tipo,nulos,pct_nulos,n_unicos,ejemplo
+viaje_id,object,0,0.0,4605,VJ-00001
+vehiculo_id,object,0,0.0,7,L386793
+t_inicio,datetime64[ns],0,0.0,4605,2025-03-17 18:01:28
+t_fin,datetime64[ns],0,0.0,4605,2025-03-17 19:02:26
+fecha,datetime64[ns],0,0.0,363,2025-03-17 00:00:00
+km_ruta,float64,0,0.0,4605,16.370652
+log_km,float64,0,0.0,4605,2.854782116
+vel_max,int64,0,0.0,104,48
+vel_prom,float64,0,0.0,682,20.5
+t_real_min,int64,0,0.0,293,48
+t_est_min,int64,0,0.0,240,51
+hora_inicio,int64,0,0.0,24,18
+dia_semana_num,int64,0,0.0,7,0
+es_fin_semana,int64,0,0.0,2,0
+mes,int64,0,0.0,12,3
+franja_horaria,object,0,0.0,3,NOCHE
+zona_destino,object,0,0.0,62,Santo Domingo
+ruta,object,0,0.0,14,SD-Centro
+n_paradas,int64,0,0.0,1,1
+densidad_paradas,float64,0,0.0,1412,0.0611
+delta_t,int64,0,0.0,356,-3
+ind_retraso,int64,0,0.0,2,0
+riesgo_cat,object,0,0.0,3,BAJO
+combustible_est_rd,float64,0,0.0,4539,806.5
+pago_chofer_rd,int64,0,0.0,1,1200
+costo_estimado,float64,0,0.0,4539,2006.5
+costo_km_est,float64,0,0.0,4535,122.5669
+tipo,object,0,0.0,3,Camion Liviano
+capacidad_kg,int64,0,0.0,4,6000
+capacidad_m3,int64,0,0.0,4,30

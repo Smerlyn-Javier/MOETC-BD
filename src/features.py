@@ -311,8 +311,6 @@ FEATURES_MODELO = [
     "mes",               # mes del año (estacionalidad)
     "n_paradas",         # número de paradas en la ruta
     "densidad_paradas",  # paradas por km (complejidad de ruta)
-    "costo_estimado",    # costo operativo estimado en RD$
-    "costo_km_est",      # costo estimado por km recorrido
 ]
 
 TARGETS = {

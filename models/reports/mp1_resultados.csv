@@ -1,5 +1,5 @@
 ,CV_RMSE_mean,CV_RMSE_std,RMSE_test,MAE_test,R2_test,supera_base
-Random Forest,8.205,1.106,7.024,3.497,0.9815,True
-XGBoost,6.61,1.123,7.453,2.877,0.9791,True
-Regresion Lineal,9.138,0.723,8.73,5.674,0.9714,True
-Arbol Decision,15.821,0.479,14.785,9.6,0.9179,True
+Random Forest,8.253,1.137,7.035,3.492,0.9814,True
+XGBoost,6.754,1.044,7.229,2.697,0.9804,True
+Regresion Lineal,9.132,0.725,8.732,5.674,0.9714,True
+Arbol Decision,15.517,1.151,15.165,9.524,0.9137,True
